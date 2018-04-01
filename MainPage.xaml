@@ -1,0 +1,251 @@
+﻿<Page
+    x:Class="Temperature_Converter.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Temperature_Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    RequestedTheme="Light"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- Storyboard resource: Animate the RadialGage -->
+        <Storyboard x:Name="myStoryboard">
+            <DoubleAnimation
+              x:Name="moveFahrenheit"
+              Storyboard.TargetName="fahrenheitGauge"
+              Storyboard.TargetProperty="Value"
+              EnableDependentAnimation="True"
+              BeginTime="0:0:1"
+              Duration="0:0:2" />
+            <DoubleAnimation
+              x:Name="moveCelsius"
+              Storyboard.TargetName="celsiusGauge"
+              Storyboard.TargetProperty="Value"
+              EnableDependentAnimation="True"
+              BeginTime="0:0:1"
+              Duration="0:0:2" />
+            <DoubleAnimation
+              x:Name="moveKelvin"
+              Storyboard.TargetName="kelvinGauge"
+              Storyboard.TargetProperty="Value"
+              EnableDependentAnimation="True"
+              BeginTime="0:0:1"
+              Duration="0:0:2" />
+        </Storyboard>
+    </Page.Resources>
+
+    <ScrollViewer>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="horizontalWideState">
+                    <VisualState.Setters>
+                        <Setter Target="Title.Margin" Value="20,20,20,10" />
+                        <Setter Target="Gages.Orientation" Value="Horizontal"/>
+                        <Setter Target="Gages.Margin" Value="20,50,20,20"/>
+                        <Setter Target="inputTempStack.Margin" Value="20,10,20,0"/>
+                        <Setter Target="unitsStack.Margin" Value="20,10,20,0"/>
+                        <Setter Target="kStack.Height" Value="300" />
+                        <Setter Target="kStack.Width" Value="300" />
+                        <Setter Target="cStack.Height" Value="300" />
+                        <Setter Target="cStack.Width" Value="300" />
+                        <Setter Target="fStack.Height" Value="300" />
+                        <Setter Target="fStack.Width" Value="300" />
+                        <Setter Target="Title.FontSize" Value="40" />
+                        <Setter Target="lblTempImput.FontSize" Value="28" />
+                        <Setter Target="txtInput.FontSize" Value="28" />
+                        <Setter Target="lblUnits.FontSize" Value="28" />
+                        <Setter Target="ddlUnits.FontSize" Value="28" />
+                        <Setter Target="calculateButton.FontSize" Value="28" />
+                        <Setter Target="moveFahrenheit.BeginTime" Value="0:0:0" />
+                        <Setter Target="moveCelsius.BeginTime" Value="0:0:0" />
+                        <Setter Target="moveKelvin.BeginTime" Value="0:0:0" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="950"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="horizontalState">
+                    <VisualState.Setters>
+                        <Setter Target="Title.Margin" Value="20,20,20,10" />
+                        <Setter Target="Gages.Orientation" Value="Horizontal"/>
+                        <Setter Target="Gages.Margin" Value="20,50,20,20"/>
+                        <Setter Target="inputTempStack.Margin" Value="20,10,20,0"/>
+                        <Setter Target="unitsStack.Margin" Value="20,10,20,0"/>
+                        <Setter Target="kStack.Height" Value="250" />
+                        <Setter Target="kStack.Width" Value="250" />
+                        <Setter Target="cStack.Height" Value="250" />
+                        <Setter Target="cStack.Width" Value="250" />
+                        <Setter Target="fStack.Height" Value="250" />
+                        <Setter Target="fStack.Width" Value="250" />
+                        <Setter Target="Title.FontSize" Value="30" />
+                        <Setter Target="lblTempImput.FontSize" Value="22" />
+                        <Setter Target="txtInput.FontSize" Value="22" />
+                        <Setter Target="lblUnits.FontSize" Value="22" />
+                        <Setter Target="ddlUnits.FontSize" Value="22" />
+                        <Setter Target="calculateButton.FontSize" Value="22" />
+                        <Setter Target="moveFahrenheit.BeginTime" Value="0:0:0" />
+                        <Setter Target="moveCelsius.BeginTime" Value="0:0:0" />
+                        <Setter Target="moveKelvin.BeginTime" Value="0:0:0" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="verticalMediumState">
+                    <VisualState.Setters>
+                        <Setter Target="Title.Margin" Value="20,5,20,5" />
+                        <Setter Target="Gages.Orientation" Value="Vertical"/>
+                        <Setter Target="Gages.Margin" Value="20,0,20,20"/>
+                        <Setter Target="inputTempStack.Margin" Value="20,0,20,0"/>
+                        <Setter Target="unitsStack.Margin" Value="20,0,20,0"/>
+                        <Setter Target="kStack.Height" Value="200" />
+                        <Setter Target="kStack.Width" Value="200" />
+                        <Setter Target="cStack.Height" Value="200" />
+                        <Setter Target="cStack.Width" Value="200" />
+                        <Setter Target="fStack.Height" Value="200" />
+                        <Setter Target="fStack.Width" Value="200" />
+                        <Setter Target="Title.FontSize" Value="30" />
+                        <Setter Target="lblTempImput.FontSize" Value="22" />
+                        <Setter Target="txtInput.FontSize" Value="22" />
+                        <Setter Target="lblUnits.FontSize" Value="22" />
+                        <Setter Target="ddlUnits.FontSize" Value="22" />
+                        <Setter Target="calculateButton.FontSize" Value="22" />
+                        <Setter Target="moveFahrenheit.BeginTime" Value="0:0:1" />
+                        <Setter Target="moveCelsius.BeginTime" Value="0:0:0.1" />
+                        <Setter Target="moveKelvin.BeginTime" Value="0:0:0.1" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="550"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="verticalState">
+                    <VisualState.Setters>
+                        <Setter Target="Title.Margin" Value="20,0,20,0" />
+                        <Setter Target="Gages.Orientation" Value="Vertical"/>
+                        <Setter Target="Gages.Margin" Value="20,0,20,20"/>
+                        <Setter Target="inputTempStack.Margin" Value="20,0,20,0"/>
+                        <Setter Target="unitsStack.Margin" Value="20,0,20,0"/>
+                        <Setter Target="kStack.Height" Value="150" />
+                        <Setter Target="kStack.Width" Value="150" />
+                        <Setter Target="cStack.Height" Value="150" />
+                        <Setter Target="cStack.Width" Value="150" />
+                        <Setter Target="fStack.Height" Value="150" />
+                        <Setter Target="fStack.Width" Value="150" />
+                        <Setter Target="Title.FontSize" Value="22" />
+                        <Setter Target="lblTempImput.FontSize" Value="16" />
+                        <Setter Target="txtInput.FontSize" Value="16" />
+                        <Setter Target="lblUnits.FontSize" Value="16" />
+                        <Setter Target="ddlUnits.FontSize" Value="16" />
+                        <Setter Target="calculateButton.FontSize" Value="16" />
+                        <Setter Target="moveFahrenheit.BeginTime" Value="0:0:1" />
+                        <Setter Target="moveCelsius.BeginTime" Value="0:0:0.1" />
+                        <Setter Target="moveKelvin.BeginTime" Value="0:0:0.1" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <Grid>
+            <Grid.Background>
+                <ImageBrush Stretch="Fill" ImageSource="/Assets/temp.png" Opacity="0.2" />
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="Title" Text="Temperature Converter" FontSize="30" TextAlignment="Center" Margin="20,20,20,10" HorizontalAlignment="Center" />
+            <StackPanel x:Name="inputTempStack" Grid.Row="1" Margin="20,0,20,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,0,20,10">
+                    <TextBlock x:Name="lblTempImput" Text="Input Temp." FontSize="22" TextAlignment="Right" Margin="10,0,10,0" VerticalAlignment="Center" />
+                    <TextBox x:Name="txtInput"  InputScope="Digits" FontSize="22" TextChanged="txtInput_TextChanged" />
+                    <Button x:Name="calculateButton" Content="Calculate" Margin="5,0,0,0" 
+                       Background="DarkRed" Foreground="#FFFBF5F5" FontSize="22" Click="calculateButton_Click" />
+                </StackPanel>
+                <StackPanel x:Name="unitsStack" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,0,20,10">
+                    <TextBlock x:Name="lblUnits" Text="System of Units" FontSize="22"  TextAlignment="Right" Margin="10,0,5,0" VerticalAlignment="Center" />
+                    <ComboBox x:Name="ddlUnits" FontSize="22" SelectionChanged="ddlUnits_SelectionChanged" >
+                        <ComboBoxItem IsSelected="True">Celsius</ComboBoxItem>
+                        <ComboBoxItem>Fahrenheit</ComboBoxItem>
+                        <ComboBoxItem>Kelvin</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel x:Name="Gages" Grid.Row="2" Margin="20,20,20,20" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel x:Name="cStack" Height="120" Width="120" Margin="5,10,5,0" >
+                    <controls:RadialGauge 
+                          x:Name="celsiusGauge"
+                          Value="0"
+                          Minimum="-60"
+                          Maximum="110"
+                          StepSize="1"
+                          IsInteractive="False"
+                          TickSpacing="10"
+                          ScaleWidth="26"
+                          MinAngle="210"
+                          MaxAngle="150"
+                          Unit="Celsius"
+                          TickBrush="DarkRed"
+                          ScaleTickBrush="{ThemeResource AppBarBackgroundThemeBrush}"
+                          UnitBrush="Black"
+                          ValueBrush="Black" 
+                          NeedleWidth="5" 
+                          TickLength="18" />
+                </StackPanel>
+                <StackPanel x:Name="fStack" Height="120" Width="120" Margin="5,10,5,0">
+                    <controls:RadialGauge 
+                          x:Name="fahrenheitGauge"
+                          Value="0"
+                          Minimum="-40"
+                          Maximum="240"
+                          StepSize="1"
+                          IsInteractive="False"
+                          TickSpacing="10"
+                          ScaleWidth="26"
+                          MinAngle="210"
+                          MaxAngle="150"
+                          Unit="Fahrenheit"
+                          TickBrush="DarkGreen"
+                          ScaleTickBrush="{ThemeResource AppBarBackgroundThemeBrush}"
+                          UnitBrush="Black"
+                          ValueBrush="Black" 
+                          NeedleWidth="5" 
+                          TickLength="18" />
+                </StackPanel>
+                <StackPanel x:Name="kStack" Height="120" Width="120" Margin="5,10,5,0">
+                    <controls:RadialGauge 
+                          x:Name="kelvinGauge"
+                          Value="0"
+                          Minimum="0"
+                          Maximum="350"
+                          StepSize="1"
+                          IsInteractive="False"
+                          TickSpacing="10"
+                          ScaleWidth="26"
+                          MinAngle="210"
+                          MaxAngle="150"
+                          Unit="Kelvin"
+                          TickBrush="DarkBlue"
+                          ScaleTickBrush="{ThemeResource AppBarBackgroundThemeBrush}"
+                          UnitBrush="Black"
+                          ValueBrush="Black" 
+                          NeedleWidth="5" 
+                          TickLength="18" />
+                </StackPanel>
+            </StackPanel>
+            <ToggleButton x:Name="toggleSpeech" HorizontalAlignment="Left" Margin="20,35,0,13" 
+                          Grid.Row="1" 
+                          VerticalAlignment="Bottom" 
+                          Tapped="toggleSpeech_Tapped">
+                <Image x:Name="speechIcon" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Width="24" Height="24"  />
+            </ToggleButton>
+            <MediaElement x:Name="uiMediaElement"   />
+        </Grid>
+    </ScrollViewer>
+</Page>
